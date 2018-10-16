@@ -1,6 +1,18 @@
 #Irma Gómez Carmona, A01747743
 #Menú con ciclos while para ejecutar las opciones
 
+def seleccionarOpcion():
+    print("")
+    print("Misión 07. Ciclos While")
+    print("Autor: Irma Gómez Carmona ")
+    print("Matrícula: A01747743")
+    print("1. Calcular divisiones")  # opciones
+    print("2. Encontrar el mayor")
+    print("3. Salir")
+    opcionM = int(input("Teclea tu opción:"))
+    print("")
+    return opcionM
+
 
 def dividir( dividendo, divisor):
     contador=0   #resultado (el número de veces que el dividor se le puede restar exactamente al dividendo)
@@ -19,38 +31,29 @@ def encontrarMayor(num1, num2): #se comparan los dos números para encontrar el 
 
 
 def main():
-    opcionM=1
+    opcionM=seleccionarOpcion()
     while opcionM!=3: #mientras que la opciones sean diferentes a 3 se ejecutará el menú
-        print("")
-        print("Misión 07. Ciclos While")
-        print("Autor: Irma Gómez Carmona ")
-        print("Matrícula: A01747743")
-        print("1. Calcular divisiones")   #opciones
-        print("2. Encontrar el mayor")
-        print("3. Salir")
-        opcionM=int(input("Teclea tu opción:"))
-        print("")
-
         if opcionM==1:
             dividendo=int(input("Teclea el dividendo: "))
             divisor = int(input("Teclea el divisor: "))
             dividir(dividendo,divisor)
 
         elif opcionM==2:
-            num1 = 0
             num2 = 0
             cont=0
-            while num1 !=-1:
-                num1 = int(input("Teclea un número [-1 para salir]: "))
-                num2 = encontrarMayor(num1, num2)
-                cont+=1
-            if cont>1:   #si el ciclo se ejecuta más de una vez se imprime el número mayor del  conjunto
-                print("El mayor es: ", num2)
+            num1 = int(input("Teclea un número [-1 para salir]: "))
+            if num1==-1:
+                print("No hay valor mayor")
             else:
-                print("No hay valor mayor") #de lo contrario, se imprime que no hay valor mayor
+                while num1 !=-1:
+                    num2 = encontrarMayor(num1, num2)
+                    num1 = int(input("Teclea un número [-1 para salir]: "))
+                print("El mayor es: ", num2)
 
         elif opcionM!=3:
             print("ERROR, teclea 1, 2 o 3")  #si no se cumplen las demás condiciones, es un valor invalido
+
+        opcionM = seleccionarOpcion()
 
     print("Gracias por usar este programa, regrese pronto") #se termina el programa
 
